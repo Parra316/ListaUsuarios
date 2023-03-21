@@ -5,6 +5,7 @@ import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import fes.aragon.listausuarios.databinding.ActivityMainBinding
@@ -17,12 +18,24 @@ class MainActivity : AppCompatActivity(), OnClickListener,
     private lateinit var binding: ActivityMainBinding
     private lateinit var linearLayoutManager: RecyclerView.LayoutManager
     private lateinit var usuarioAdapter: UsuarioAdapter
+    private lateinit var id : String
+    private lateinit var nombre : String
+    private lateinit var url : String
+
+    private val requestPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()){
+                isGranted ->
+            val message= if(isGranted) "Permiso Aceptado" else " Permiso Rechazado"
+            Toast.makeText(this,message,Toast.LENGTH_LONG).show()
+
+        }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        requestPermissionLauncher.launch(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
         inicioCodigo()
     }
 
@@ -31,8 +44,6 @@ class MainActivity : AppCompatActivity(), OnClickListener,
         var us:usuario
         val sd = binding.recyclerview.context.filesDir
         val rutaLeer = File(sd.path.toString(),"usuario.txt")
-
-
         if(rutaLeer.exists()){
             println("Aqui esta el path " + sd.path)
             var buffer = BufferedReader(FileReader(rutaLeer))
@@ -54,7 +65,10 @@ class MainActivity : AppCompatActivity(), OnClickListener,
     }
 
     override fun onClick(usuario: usuario) {
-        Toast.makeText(this,usuario.nombre,Toast.LENGTH_SHORT).show()
+        id = usuario.id.toString()
+        nombre = usuario.nombre
+        url = usuario.url
+        Toast.makeText(this, usuario.id.toString(), Toast.LENGTH_SHORT).show()
     }
 
     private fun inicioCodigo(){
@@ -65,6 +79,16 @@ class MainActivity : AppCompatActivity(), OnClickListener,
             var fr = Fragment_add_usuario();
             fr.isCancelable = false
             fr.show(supportFragmentManager,"Datos de entrada")
+        }
+
+        binding.eliminar.setOnClickListener{
+            Toast.makeText(this, id, Toast.LENGTH_SHORT).show()
+            if (id != null && id != "-1") {
+                var fr = Fragment_delete_usuario.newInstance(id, nombre, url);
+                fr.isCancelable = false
+                fr.show(supportFragmentManager,"Eliminar")
+                id = "-1"
+            }
         }
     }
 

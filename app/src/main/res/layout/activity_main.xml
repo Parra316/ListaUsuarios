@@ -19,21 +19,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_person_add_24"
-            android:contentDescription="@string/btn_agregar"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:backgroundTint="@color/bg_agregar"
+            android:layout_marginHorizontal="20dp"
+            android:contentDescription="@string/btn_agregar"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/eliminar"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_person_add_24"
-            android:contentDescription="@string/btn_agregar"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:src="@drawable/baseline_delete_24"
+            android:backgroundTint="@color/bg_eliminar"
+            android:layout_marginHorizontal="20dp"
+            android:contentDescription="@string/btn_agregar"/>
 
 
     </LinearLayout>

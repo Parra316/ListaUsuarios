@@ -6,6 +6,9 @@
     <string name="nombre">Nombre</string>
     <string name="url">Url</string>
     <string name="imagen">Imagen</string>
-    <string name="btn_eliminar">eliminar</string>
+    <string name="btn_eliminar">Eliminar</string>
     <string name="btn_agregar">Agregar dato de Usuario</string>
+    <string name="almacenar">Almacenar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="borrar">Borrar</string>
 </resources>

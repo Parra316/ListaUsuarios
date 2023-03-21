@@ -13,12 +13,14 @@
 
     <LinearLayout
         android:id="@+id/LinearLayout"
-        android:layout_width="350dp"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:orientation="vertical"
+        app:circularflow_radiusInDP="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,63 +29,82 @@
 
         <EditText
             android:id="@+id/id"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
+            android:layout_gravity="center"
             android:layout_height="48dp"
             android:autofillHints="identificador"
             android:ems="20"
             android:hint="@string/id"
             android:inputType="textPersonName"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
+            android:drawablePadding="12dp"
+            android:background="@drawable/txt_rounded"
+            android:layout_marginTop="16dp"
             android:textColorHighlight="#FAF6F6"
-            android:textColorHint="#F3F2F2"/>
+            android:textColorHint="#FF000000"
+            android:gravity="center"/>
 
 
         <EditText
             android:id="@+id/nombre"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
+            android:layout_gravity="center"
             android:layout_height="48dp"
             android:autofillHints="nombre"
             android:ems="20"
             android:hint="@string/nombre"
             android:inputType="textPersonName"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
+            android:drawablePadding="12dp"
+            android:background="@drawable/txt_rounded"
+            android:layout_marginTop="16dp"
             android:textColorHighlight="#FAF6F6"
-            android:textColorHint="#F3F2F2"/>
+            android:textColorHint="#FF000000"
+            android:gravity="center"/>
 
         <EditText
             android:id="@+id/url"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
+            android:layout_gravity="center"
             android:layout_height="48dp"
             android:autofillHints="url"
             android:ems="20"
             android:hint="@string/url"
             android:inputType="textPersonName"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
+            android:drawablePadding="12dp"
+            android:background="@drawable/txt_rounded"
+            android:layout_marginTop="16dp"
             android:textColorHighlight="#FAF6F6"
-            android:textColorHint="#F3F2F2"/>
+            android:textColorHint="#FF000000"
+            android:gravity="center"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/almacenar"
-                android:layout_width="150dp"
-                android:layout_height="48dp"
+                android:layout_width="170dp"
+                android:layout_height="60dp"
                 android:layout_marginHorizontal="10dp"
-                android:background="@color/color_divider"
-                android:text="Almacenar"
-                android:textColor="@color/white"/>
+                android:backgroundTint="@color/purple_500"
+                android:text="@string/almacenar"
+                android:textColor="@color/white"
+                app:cornerRadius="@dimen/btn_rounded" />
 
             <Button
                 android:id="@+id/cancelar"
-                android:layout_width="150dp"
-                android:layout_height="48dp"
+                android:layout_width="170dp"
+                android:layout_height="60dp"
                 android:layout_marginHorizontal="10dp"
-                android:background="@color/color_divider"
-                android:text="Cancelar"
-                android:textColor="@color/white"/>
+                android:backgroundTint="@color/purple_500"
+                android:text="@string/cancelar"
+                android:textColor="@color/white"
+                app:cornerRadius="@dimen/btn_rounded"/>
         </LinearLayout>
 
     </LinearLayout>
